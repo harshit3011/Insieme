@@ -1,13 +1,17 @@
 package models
 
+import "time"
+
 type User struct {
 	ID           string
 	Name         string
 	Username     string
 	Email        string
 	PasswordHash string
-	ProfilePic   string
-	Bio          string
+	ProfilePic   *string
+	Bio          *string
+	CreatedAt    time.Time
+	UpdatedAt	time.Time
 }
 
 type RegisterDetails struct {
