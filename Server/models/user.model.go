@@ -5,24 +5,21 @@ type User struct {
 	Name         string
 	Username     string
 	Email        string
-	Password     string
+	PasswordHash string
 	ProfilePic   string
 	Bio          string
-	AccessToken  string
-	RefreshToken string
 }
 
 type RegisterDetails struct {
-	ID         string
-	Name       string
-	Username   string
-	Email      string
-	Password   string
-	ProfilePic string
-	Bio        string
+	Name       string  `json:"name" validate:"required"`
+	Username   string  `json:"username" validate:"required"`
+	Email      string  `json:"email" validate:"required,email"`
+	Password   string  `json:"password" validate:"required"`
+	ProfilePic *string `json:"profilepic"`
+	Bio        *string `json:"bio"`
 }
 
 type Login struct {
-	Email    string
-	Password string
+	Email    string `json:"email" validate:"required"`
+	Password string `json:"password" validate:"required"`
 }
